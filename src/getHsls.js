@@ -3,7 +3,7 @@ const canvasPrebuilt = require('canvas-prebuilt');
 const Canvas = canvasPrebuilt.Canvas;
 const Image = canvasPrebuilt.Image;
 
-const getCanvasImageData = async (imageBuffer) => {
+const getCanvasImageData = async function (imageBuffer) {
   return new Promise( (resolve, reject) => {
     const canvasImage = new Image();
     canvasImage.crossOrigin = 'Anonymous';
@@ -24,7 +24,7 @@ const getCanvasImageData = async (imageBuffer) => {
   });
 };
 
-module.exports = async (imageBuffer) => {
+module.exports = async function (imageBuffer) {
   if (['string', 'object'].indexOf(typeof imageBuffer) === -1) {
       throw new TypeError('Expected imageBuffer to be a string or a buffer');
   }

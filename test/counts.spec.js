@@ -21,7 +21,7 @@
 
 
 const expect = require('chai').expect;
-const getHsls = require('./getHsls');
+const getHsls = require('../src/getHsls');
 
 const fileName = '../../Pictures/illy-card.jpg';
 
