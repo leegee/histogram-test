@@ -31,26 +31,21 @@ module.exports = async function (imageBuffer) {
 
   const data = await getCanvasImageData(imageBuffer);
   
-  const hsls = {};
+  let red = 0, green = 0, blue = 0, alpha = 0;
 
   for (let i = 0; i < data.length; i += 4) {
-    const red   = data[i];
-    const green = data[i + 1];
-    const blue  = data[i + 2];
-    const alpha = data[i + 3];
-
-    const hsl = conversions.rgbToHsl(red, green, blue);
-    const key = hsl.join(',');
-
-    if (hsls.hasOwnProperty(key)) {
-      hsls[key].count ++
-    } else {
-      hsls[key] = {
-        count: 1,
-        hsl
-      };
-    }
+    red   += data[i];
+    green += data[i + 1];
+    blue  += data[i + 2];
+    alpha += data[i + 3];
   }
 
-  return Object.values(hsls);
+  const pixelCount = data.length / 4;
+  red = Math.floor(red / pixelCount);
+  green = Math.floor(green / pixelCount);
+  blue = Math.floor(blue / pixelCount);
+  alpha = Math.floor(alpha / pixelCount);
+  
+  const hsl = conversions.rgbToHsl(red, green, blue);
+  return hsl;
 };
