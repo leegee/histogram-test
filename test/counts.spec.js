@@ -25,11 +25,13 @@ const getHsls = require('../src/getHsls');
 
 const fileName = './test/so-safe.jpg';
 
-describe('getHsl', () => {
-    it('average', () => {
-        getHsls(fileName).then(hsls => {
-            console.log(hsls);
-            // expect( entries.length, 'Total colors').to.equal(11541);
-        });
+describe('getHsl', async () => {
+    it('average', async () => {
+        const hsl = await getHsls(fileName);
+        console.log(hsl);
+        expect(hsl.length, 'HSL').to.equal(3);
+        expect(hsl).to.deep.equal(
+            [0.05882352941176471, 0.2537313432835821, 0.2627450980392157]
+        );
     });
 })
