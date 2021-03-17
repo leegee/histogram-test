@@ -23,11 +23,11 @@
 const expect = require('chai').expect;
 const getHsls = require('../src/getHsls');
 
-const fileName = '../../Pictures/illy-card.jpg';
+const fileName = './test/so-safe.jpg';
 
 describe('getHsl', () => {
     it('average', () => {
-        getHsls(fileName).then( hsls => {
+        getHsls(fileName).then(hsls => {
             console.log(hsls);
             // expect( entries.length, 'Total colors').to.equal(11541);
         });

@@ -1,10 +1,13 @@
 {
   "name": "histogram-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
+  "repository": {
+    "url": "git@github.com:leegee/histogram-test.git"
+  },
   "main": "index.js",
   "dependencies": {
-    "canvas-prebuilt": "^2.0.0-alpha.14",
+    "canvas": "^2.7.0",
     "histogram": "^3.0.1"
   },
   "devDependencies": {
@@ -13,8 +16,8 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "test": "npm one.js"
+    "test": "mocha test"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Lee Goddard",
+  "license": "UNLICENCED"
 }
